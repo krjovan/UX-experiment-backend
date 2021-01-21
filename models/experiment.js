@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 
 //Tabela, odnosno atributi, tip podataka i ostale gluposti
 const ExperimentSchema = mongoose.Schema({
-    time1: { type: Number, default: 0, required: true },
-    time2: { type: Number, default: 0, required: true }   
+    redosled: { type: Number, required: true },
+    layoutTime1: { type: Number, default: 0, required: true },
+    layoutTime2: { type: Number, default: 0, required: true }   
 });
 
 

@@ -20,4 +20,12 @@ router.get('/all', (req, res, next) => {
     });
 });
 
+router.delete('/delete/:id', (req, res, next) => {
+    Experiment.removeExperiment(req.params.id.toString(), (err) => {
+        if (err)
+            return res.status(500).send("Server error!");
+        return res.status(204).send("Experiment removed!");
+    });
+});
+
 module.exports = router;
