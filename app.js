@@ -9,6 +9,7 @@ const logger = require('morgan');
 //ucitavamo servise
 const users=require('./routes/users');
 const pdfs=require('./routes/pdfs');
+const experiments=require('./routes/experiments');
 
 //konektujemo se na bazu
 mongoose.connect(config.database,{ useNewUrlParser: true , useUnifiedTopology: true });
@@ -30,6 +31,7 @@ app.use(bodyParser.json());
 //navodimo nasted putanje iz servisa
 app.use('/users',users);
 app.use('/pdfs',pdfs);
+app.use('/experiments',experiments);
 
 //startujemo server na portu 8080
 const port= process.env.PORT || 8080;
