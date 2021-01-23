@@ -2,9 +2,40 @@ const mongoose = require('mongoose');
 
 //Tabela, odnosno atributi, tip podataka i ostale gluposti
 const ExperimentSchema = mongoose.Schema({
-    redosled: { type: Number, required: true },
-    layoutTime1: { type: Number, default: 0, required: true },
-    layoutTime2: { type: Number, default: 0, required: true }   
+	
+	godineIskustva: { type: Number, required: true },
+    satiDnevno: { type: Number, required: true },
+    profesija: { type: Boolean, required: true },
+    iskustvoKatastar: { type: Boolean, required: true },
+	
+	redosled: { type: Number, required: true },
+
+    firstLokUlicaIBroj: { type: String, required: true },
+    firstLokMesto: { type: String, required: true },
+    firstLokBrKatParcele: { type: String, required: true },
+    firstLokPovKatParcele: { type: String, required: true },
+    firstLokBrObjekataNaParceli: { type: String, required: true },
+    firstPodnosiocImePrez: { type: String, required: true },
+    firstPodnosiocAdresa: { type: String, required: true },
+    firstPodnosiocJmbg: { type: String, required: true },
+    firstDostavaEmail: { type: String, required: true },
+    firstDostavaMobilni: { type: String, required: true },
+    firstLayoutTime: { type: Number, required: true },
+
+    secondLokUlicaIBroj: { type: String, required: true },
+    secondLokMesto: { type: String, required: true },
+    secondLokBrKatParcele: { type: String, required: true },
+    secondLokPovKatParcele: { type: String, required: true },
+    secondLokBrObjekataNaParceli: { type: String, required: true },
+    secondPodnosiocImePrez: { type: String, required: true },
+    secondPodnosiocAdresa: { type: String, required: true },
+    secondPodnosiocJmbg: { type: String, required: true },
+    secondDostavaEmail: { type: String, required: true },
+    secondDostavaMobilni: { type: String, required: true },
+    secondLayoutTime: { type: Number, required: true },
+
+    subjekatPreferira: { type: String, required: true },
+    subjekatMisljenje: { type: String, required: false }
 });
 
 
