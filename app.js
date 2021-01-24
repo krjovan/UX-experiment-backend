@@ -10,7 +10,7 @@ const logger = require('morgan');
 const users=require('./routes/users');
 const pdfs=require('./routes/pdfs');
 const experiments=require('./routes/experiments');
-
+const app=express();
 //konektujemo se na bazu
 mongoose.connect(config.database,{ useNewUrlParser: true , useUnifiedTopology: true });
 mongoose.connection.on('connected',()=>{
@@ -20,9 +20,13 @@ mongoose.connection.on('error',(err)=>{
     console.log('Error with connection to db: '+err);
 });
 
+app.set('views', __dirname + '/public');
+app.set('view engine', 'html');
 
+//staticki direktorijum bice ./public
+app.use(express.static(path.join(__dirname,'public')));
 //gommila postavki nodejs servera
-const app=express();
+
 app.use(cors());
 app.use(express.static(path.join(__dirname,'public')));
 app.use(logger('dev'));
@@ -32,6 +36,11 @@ app.use(bodyParser.json());
 app.use('/users',users);
 app.use('/pdfs',pdfs);
 app.use('/experiments',experiments);
+
+app.get('**',(req,res)=>{
+    res.sendFile(__dirname+'/public/index.html');
+});
+
 
 //startujemo server na portu 8080
 const port= process.env.PORT || 8080;
