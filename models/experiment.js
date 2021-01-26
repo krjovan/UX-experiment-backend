@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 //Tabela, odnosno atributi, tip podataka i ostale gluposti
 const ExperimentSchema = mongoose.Schema({
 	
+	pol: { type: String, required: true },
+	starosnoDoba: { type: String, required: true },
 	godineIskustva: { type: Number, required: true },
     satiDnevno: { type: Number, required: true },
     profesija: { type: Boolean, required: true },
